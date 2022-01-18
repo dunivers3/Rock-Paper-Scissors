@@ -5,7 +5,7 @@
     //PAPER BEATS ROCK
 
 
-const score = {
+var score = {
     player: 0,
     computer: 0
 };
@@ -20,9 +20,9 @@ function game(){
 
     let winner = winnerSelector(playerSelection, computerSelection);
 
-    console.log(playerSelection);
-    console.log(computerSelection);
-    console.log(winner)
+    // console.log(playerSelection);
+    // console.log(computerSelection);
+    // console.log(winner)
 }
 
 //Computer play. It returns Rock Paper or Scissors
@@ -40,24 +40,30 @@ function computerPlay(){
 //Function that determines the winner
 function winnerSelector(plyS, cmpS){
     if(plyS === cmpS){
-        console.log("Thats a draw!");        
+        console.log("Rock Paper Scissors");        
     }else if (plyS === "ROCK"){
         if (cmpS === "SCISSORS"){
-            return ("You win! Rock beats Scissors!");
+            score.player ++;
+            return ("Player");
         }else {
-            return ("You loose! Paper beats Rock!");
+            score.computer ++;
+            return ("Computer");
         }
     }else if (plyS === "SCISSORS"){
         if (cmpS === "PAPER"){
-            return ("You win! Scissors beats Paper!");
+            score.player ++;
+            return ("Player");
         }else {
-            return ("You loose! Paper beats Rock!");
+            score.computer ++;
+            return ("Computer");
         }
     }else {
         if (cmpS === "ROCK"){
-            return ("You win! Paper beats Rock!");
+            score.player ++;
+            return ("Player");
         }else {
-            return ("You loose! Scissors beats Paper!");
+            score.computer ++;
+            return ("Computer");
         }
     }
 }
@@ -68,11 +74,22 @@ function winnerSelector(plyS, cmpS){
 
 
 
+// Announce winner
+function winnerIs(){
+    if (score.player == score.computer){
+        console.log("Well, thats a tie. You won " + score.player + " times, and Computer won " + score.computer + " times!");
+    }else if (score.player > score.computer){
+        console.log("Player wins! You beat the Computer " + score.player + " times! ");
+    }else {
+        console.log("Computer wins! You got crushed " + score.computer + " times!");
+    }
+}
 
 
+//Repeat the game fo 5 turns
 
+for (i=1; i <=5; i++){
+    game();
+}
 
-
-
-
-game();
+winnerIs();
