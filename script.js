@@ -40,30 +40,30 @@ function computerPlay(){
 //Function that determines the winner
 function winnerSelector(plyS, cmpS){
     if(plyS === cmpS){
-        console.log("Rock Paper Scissors");        
+        console.log ("Rock Paper Scissors tie");       
     }else if (plyS === "ROCK"){
         if (cmpS === "SCISSORS"){
             score.player ++;
-            return ("Player");
+            console.log ("Player Rocks");
         }else {
             score.computer ++;
-            return ("Computer");
+            console.log ("Computer Wraps");
         }
     }else if (plyS === "SCISSORS"){
         if (cmpS === "PAPER"){
             score.player ++;
-            return ("Player");
+            console.log ("Player Cuts");
         }else {
             score.computer ++;
-            return ("Computer");
+            console.log ("Computer Smashes");
         }
     }else {
         if (cmpS === "ROCK"){
             score.player ++;
-            return ("Player");
+            console.log ("Player Wraps");
         }else {
             score.computer ++;
-            return ("Computer");
+            console.log ("Computer Cuts");
         }
     }
 }
