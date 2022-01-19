@@ -5,20 +5,20 @@
     //PAPER BEATS ROCK
 
 
-var score = {
+var scorecard = {
     player: 0,
     computer: 0
 };
 
 
 //Main play function
-function game(){
+function playGame(){
     let playerSelection = prompt("What is your choice? ", "Rock, Paper or Scissors?");
     playerSelection = playerSelection.toUpperCase();
     let computerSelection = computerPlay();
     computerSelection = computerSelection.toUpperCase();
 
-    let winner = winnerSelector(playerSelection, computerSelection);
+    let winner = selectWinner(playerSelection, computerSelection);
 
     // console.log(playerSelection);
     // console.log(computerSelection);
@@ -38,31 +38,31 @@ function computerPlay(){
 }
 
 //Function that determines the winner
-function winnerSelector(plyS, cmpS){
-    if(plyS === cmpS){
+function selectWinner(playerChoice, computerChoice){
+    if(playerChoice === computerChoice){
         console.log ("Rock Paper Scissors tie");       
-    }else if (plyS === "ROCK"){
-        if (cmpS === "SCISSORS"){
-            score.player ++;
+    }else if (playerChoice === "ROCK"){
+        if (computerChoice === "SCISSORS"){
+            scorecard.player ++;
             console.log ("Player Rocks");
         }else {
-            score.computer ++;
+            scorecard.computer ++;
             console.log ("Computer Wraps");
         }
-    }else if (plyS === "SCISSORS"){
-        if (cmpS === "PAPER"){
-            score.player ++;
+    }else if (playerChoice === "SCISSORS"){
+        if (computerChoice === "PAPER"){
+            scorecard.player ++;
             console.log ("Player Cuts");
         }else {
-            score.computer ++;
+            scorecard.computer ++;
             console.log ("Computer Smashes");
         }
     }else {
-        if (cmpS === "ROCK"){
-            score.player ++;
+        if (computerChoice === "ROCK"){
+            scorecard.player ++;
             console.log ("Player Wraps");
         }else {
-            score.computer ++;
+            scorecard.computer ++;
             console.log ("Computer Cuts");
         }
     }
@@ -75,13 +75,13 @@ function winnerSelector(plyS, cmpS){
 
 
 // Announce winner
-function winnerIs(){
-    if (score.player == score.computer){
-        console.log("Well, thats a tie. You won " + score.player + " times, and Computer won " + score.computer + " times!");
-    }else if (score.player > score.computer){
-        console.log("Player wins! You beat the Computer " + score.player + " times! ");
+function getWinner(){
+    if (scorecard.player == scorecard.computer){
+        console.log("Well, thats a tie. You won " + scorecard.player + " times, and Computer won " + scorecard.computer + " times!");
+    }else if (scorecard.player > scorecard.computer){
+        console.log("Player wins! You beat the Computer " + scorecard.player + " times! ");
     }else {
-        console.log("Computer wins! You got crushed " + score.computer + " times!");
+        console.log("Computer wins! You got crushed " + scorecard.computer + " times!");
     }
 }
 
@@ -89,7 +89,7 @@ function winnerIs(){
 //Repeat the game fo 5 turns
 
 for (i=1; i <=5; i++){
-    game();
+    playGame();
 }
 
-winnerIs();
+getWinner();
