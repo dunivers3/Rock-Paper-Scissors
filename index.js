@@ -11,21 +11,16 @@ var scorecard = {
 };
 
 
-//Main play function
+//Main play function initializes other functions
 function playGame(){
-    let playerSelection = prompt("What is your choice? ", "Rock, Paper or Scissors?");
+    //let playerSelection = prompt("What is your choice? ", "Rock, Paper or Scissors?");
     playerSelection = playerSelection.toUpperCase();
     let computerSelection = computerPlay();
     computerSelection = computerSelection.toUpperCase();
-
     let winner = selectWinner(playerSelection, computerSelection);
-
-    // console.log(playerSelection);
-    // console.log(computerSelection);
-    // console.log(winner)
 }
 
-//Computer play. It returns Rock Paper or Scissors
+//Computer play. It returns Rock Paper or Scissors when computer plays
 function computerPlay(){
     let randomChoices = [
         "Rock",
@@ -37,7 +32,7 @@ function computerPlay(){
 
 }
 
-//Function that determines the winner
+//Function to determines the winner depending on either of the choice on the two players
 function selectWinner(playerChoice, computerChoice){
     if(playerChoice === computerChoice){
         console.log ("Rock Paper Scissors tie");       
