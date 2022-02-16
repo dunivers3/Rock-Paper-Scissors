@@ -1,4 +1,10 @@
-<h1 align="center">Welcome to Rock-Paper-Scissors 👋</h1>
+<h1 align="center">
+  Welcome to Rock-Paper-Scissors 👋
+  HOW TO PLAY ROCK PAPER SCISSORS
+  ROCK BEATS SCISSORS
+  SCISSORS BEATS PAPER
+  PAPER BEATS ROCK
+</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.1-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">

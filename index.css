@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-body 7{
+body {
     margin: 0;
     padding: 5px;
     font-family: monospace;
@@ -11,19 +11,38 @@ body 7{
 
 #centered_div {
     display: flex;
-    padding-top: 15%;
+    padding-top: 20px;
     justify-content: space-around;
-    
 }
 
+#winner_el {
+    font-weight: bold;
+    font-style: italic;
+    margin-top: 30px;
+    padding: 15px;
+    width: 100%;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    color:mediumseagreen
+}
 
-button {
+button{
     border: 1px solid green;
     border-radius: 6px;
-    padding: 15px;
+    padding: 5px;
     width: 200px;
     height: 60px;
     font-weight: bold;
-
+}
+label {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    margin-top: 5%;
+    font-size: 28px;
+    letter-spacing: 1rem;
 
 }

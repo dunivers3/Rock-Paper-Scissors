@@ -1,90 +1,94 @@
-//HOW TO PLAY ROCK PAPER SCISSORS
-
-    //ROCK BEATS SCISSORS
-    //SCISSORS BEATS PAPER
-    //PAPER BEATS ROCK
-
-
-var scorecard = {
+let scorecard = {
     player: 0,
     computer: 0
 };
 
+const rockBtn = document.getElementById("rock_btn");
+const paperBtn = document.getElementById("paper_btn");
+const scissorsBtn = document.getElementById("scissor_btn");
+let winnerEl = document.getElementById("winner_el");
 
-//Main play function initializes other functions
-function playGame(){
-    //let playerSelection = prompt("What is your choice? ", "Rock, Paper or Scissors?");
-    playerSelection = playerSelection.toUpperCase();
-    let computerSelection = computerPlay();
-    computerSelection = computerSelection.toUpperCase();
-    let winner = selectWinner(playerSelection, computerSelection);
-}
+
+rockBtn.addEventListener("click", function(){
+    selectWinner("ROCK", computerPlay());
+})
+paperBtn.addEventListener("click", function() {
+    selectWinner("PAPER", computerPlay());
+} );
+scissorsBtn.addEventListener("click", function() {
+    selectWinner("SCISSORS", computerPlay());
+} );
+
+
 
 //Computer play. It returns Rock Paper or Scissors when computer plays
 function computerPlay(){
     let randomChoices = [
-        "Rock",
-        "Paper",
-        "Scissors"
+        "ROCK",
+        "PAPER",
+        "SCISSORS"
     ];
     randomChoices = randomChoices[Math.floor(Math.random()*randomChoices.length)];
     return randomChoices;
-
 }
 
 //Function to determines the winner depending on either of the choice on the two players
 function selectWinner(playerChoice, computerChoice){
     if(playerChoice === computerChoice){
-        console.log ("Rock Paper Scissors tie");       
+        winnerEl.textContent = `TIE!`;
+        scoreTab();
     }else if (playerChoice === "ROCK"){
         if (computerChoice === "SCISSORS"){
             scorecard.player ++;
-            console.log ("Player Rocks");
-        }else {
+            winnerEl.textContent = `Rock beats scissors!`;
+            getWinner();
+        }else {                     //Computer chose paper. playerChoice can only be rock
             scorecard.computer ++;
-            console.log ("Computer Wraps");
+            winnerEl.textContent = `Paper beats rock!`;
+            getWinner();
         }
     }else if (playerChoice === "SCISSORS"){
         if (computerChoice === "PAPER"){
             scorecard.player ++;
-            console.log ("Player Cuts");
-        }else {
+            winnerEl.textContent = `Scissors beats paper!`;
+            getWinner();
+        }else {                     //Computer chose rock. playerChoice can only be scissors
             scorecard.computer ++;
-            console.log ("Computer Smashes");
+            winnerEl.textContent = `Rock beats scissors!`;
+            getWinner();
         }
     }else {
         if (computerChoice === "ROCK"){
             scorecard.player ++;
-            console.log ("Player Wraps");
-        }else {
+            winnerEl.textContent = `Paper beats rock!`;
+            getWinner();
+        }else {                     //Computer chose scissors. playerChoice can only be paper
             scorecard.computer ++;
-            console.log ("Computer Cuts");
+            winnerEl.textContent = `Scissors beats paper!`;
+            getWinner();
         }
     }
 }
 
-
-
-
-
-
-
 // Announce winner
 function getWinner(){
-    if (scorecard.player == scorecard.computer){
-        console.log("Well, thats a tie. You won " + scorecard.player + " times, and Computer won " + scorecard.computer + " times!");
-    }else if (scorecard.player > scorecard.computer){
-        console.log("Player wins! You beat the Computer " + scorecard.player + " times! ");
+    if (scorecard.player === 5 || scorecard.computer === 5){
+        if(scorecard.player > scorecard.computer){
+            winnerEl.textContent = "Player wins! You beat the Computer " + scorecard.player + " times! ";
+            scorecard.player = 0;
+        }else{
+            winnerEl.textContent = "Computer wins! You beat the Player " + scorecard.computer + " times! ";
+            scorecard.computer = 0;
+        }
     }else {
-        console.log("Computer wins! You got crushed " + scorecard.computer + " times!");
+        scoreTab();
     }
 }
 
-
-//Repeat the game fo 5 turns
-
-for (i=1; i <=5; i++){
-    playGame();
+function scoreTab(){
+    if(scorecard.player > scorecard.computer){
+        winnerEl.textContent += ` The scores is ${scorecard.player}`
+    } else {
+        winnerEl.textContent += ` The scores is ${scorecard.computer}`
+    }
 }
-
-getWinner();
