@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+
+body 7{
+    margin: 0;
+    padding: 5px;
+    font-family: monospace;
+    
+}
+
+#centered_div {
+    display: flex;
+    padding-top: 15%;
+    justify-content: space-around;
+    
+}
+
+
+button {
+    border: 1px solid green;
+    border-radius: 6px;
+    padding: 15px;
+    width: 200px;
+    height: 60px;
+    font-weight: bold;
+
+
+}
