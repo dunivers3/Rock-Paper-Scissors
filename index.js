@@ -87,8 +87,8 @@ function getWinner(){
 
 function scoreTab(){
     if(scorecard.player > scorecard.computer){
-        winnerEl.textContent += ` The scores is ${scorecard.player}`
+        winnerEl.textContent += ` Score: Player-${scorecard.player}, Computer-${scorecard.computer}`
     } else {
-        winnerEl.textContent += ` The scores is ${scorecard.computer}`
+        winnerEl.textContent += ` Score: Computer-${scorecard.computer}, Player-${scorecard.player}`
     }
 }
