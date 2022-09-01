@@ -23,7 +23,7 @@
 
 > Paper beats Rock, Scissors beats paper, Rock beats Scissors!
 
-### 🏠 [Homepage](https://github.com/dunivers3/Rock-Paper-Scissors#readme)
+### 🏠 [Homepage](https://duniverse-rps-fun-game.netlify.app/)
 
 ### ✨ [Demo](https://dunivers3.github.io/Rock-Paper-Scissors/)
 
